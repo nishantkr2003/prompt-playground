@@ -1,0 +1,87 @@
+```gitignore id="ppg24"
+# =========================
+# ENV & SECRETS
+# =========================
+.env
+.env.local
+.env.*.local
+
+# =========================
+# PYTHON
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+env/
+ENV/
+.venv/
+
+# =========================
+# FLASK
+# =========================
+instance/
+.webassets-cache
+.flaskenv
+
+# =========================
+# DATABASE
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+prompt_playground.db
+
+# =========================
+# LOGS
+# =========================
+*.log
+logs/
+
+# =========================
+# FRONTEND
+# =========================
+node_modules/
+dist/
+build/
+
+# =========================
+# IDE / EDITOR
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS FILES
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# TESTING
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# TEMP FILES
+# =========================
+*.tmp
+*.bak
+*.swp
+
+# =========================
+# API / GENERATED EXPORTS
+# =========================
+exports/
+uploads/
+*.json.bak
+
+# =========================
+# DOCKER
+# =========================
+docker-compose.override.yml
+```
