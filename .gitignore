@@ -1,7 +1,4 @@
-```gitignore id="ppg24"
-# =========================
-# ENV & SECRETS
-# =========================
+
 .env
 .env.local
 .env.*.local
@@ -80,8 +77,3 @@ exports/
 uploads/
 *.json.bak
 
-# =========================
-# DOCKER
-# =========================
-docker-compose.override.yml
-```
