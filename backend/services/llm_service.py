@@ -77,8 +77,8 @@ class LLMService:
         max_tokens
     ):
         api_key = current_config.GEMINI_API_KEY
-
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}"
+        GEMINI_MODEL = "gemini-flash-lite-latest"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={api_key}"
 
         full_prompt = f"{system_prompt}\n\n{user_prompt}" if system_prompt else user_prompt
 
@@ -100,6 +100,7 @@ class LLMService:
         response = requests.post(url, json=payload, timeout=current_config.REQUEST_TIMEOUT)
 
         if response.status_code != 200:
+            print(response.text)
             raise Exception(f"Gemini API Error: {response.text}")
 
         data = response.json()
@@ -139,7 +140,7 @@ class LLMService:
         })
 
         payload = {
-            "model": "llama3-8b-8192",
+            "model": "llama-3.1-8b-instant",
             "messages": messages,
             "temperature": temperature,
             "top_p": top_p,

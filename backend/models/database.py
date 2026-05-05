@@ -1,25 +1,54 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-# Initialize SQLAlchemy
+# Initialize SQLAlchemy library
 db = SQLAlchemy()
 
-
-
-# Prompt Library Table
+# PROMPT LIBRARY
 
 class PromptLibrary(db.Model):
     __tablename__ = "prompt_library"
 
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(255), nullable=False)
-    system_prompt = db.Column(db.Text, nullable=True)
-    user_prompt = db.Column(db.Text, nullable=False)
-    technique = db.Column(db.String(100), nullable=False, default="zero-shot")
-    provider = db.Column(db.String(50), nullable=False, default="gemini")
+    id = db.Column(db.BigInteger, primary_key=True)
 
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    title = db.Column(
+        db.String(255),
+        nullable=False,
+        index=True
+    )
+
+    system_prompt = db.Column(db.Text, nullable=True)
+
+    user_prompt = db.Column(
+        db.Text,
+        nullable=False
+    )
+
+    technique = db.Column(
+        db.String(100),
+        nullable=False,
+        default="zero-shot",
+        index=True
+    )
+
+    provider = db.Column(
+        db.String(50),
+        nullable=False,
+        default="gemini",
+        index=True
+    )
+
+    created_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow,
+        index=True
+    )
+
+    updated_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow
+    )
 
     # Relationships
     versions = db.relationship(
@@ -44,28 +73,42 @@ class PromptLibrary(db.Model):
             "user_prompt": self.user_prompt,
             "technique": self.technique,
             "provider": self.provider,
-            "created_at": self.created_at.isoformat(),
-            "updated_at": self.updated_at.isoformat()
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "updated_at": self.updated_at.isoformat() if self.updated_at else None
         }
 
 
+# PROMPT VERSIONS
 
-# Prompt Version History
 class PromptVersions(db.Model):
     __tablename__ = "prompt_versions"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.BigInteger, primary_key=True)
+
     prompt_id = db.Column(
-        db.Integer,
+        db.BigInteger,
         db.ForeignKey("prompt_library.id"),
+        nullable=False,
+        index=True
+    )
+
+    version_number = db.Column(
+        db.Integer,
         nullable=False
     )
 
-    version_number = db.Column(db.Integer, nullable=False)
     system_prompt = db.Column(db.Text, nullable=True)
-    user_prompt = db.Column(db.Text, nullable=False)
 
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    user_prompt = db.Column(
+        db.Text,
+        nullable=False
+    )
+
+    created_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow,
+        index=True
+    )
 
     def to_dict(self):
         return {
@@ -74,26 +117,32 @@ class PromptVersions(db.Model):
             "version_number": self.version_number,
             "system_prompt": self.system_prompt,
             "user_prompt": self.user_prompt,
-            "created_at": self.created_at.isoformat()
+            "created_at": self.created_at.isoformat() if self.created_at else None
         }
 
-
-
-# Execution History Table
-
+# PROMPT HISTORY
 class PromptHistory(db.Model):
     __tablename__ = "prompt_history"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.BigInteger, primary_key=True)
+
     prompt_id = db.Column(
-        db.Integer,
+        db.BigInteger,
         db.ForeignKey("prompt_library.id"),
-        nullable=True
+        nullable=True,
+        index=True
     )
 
-    provider = db.Column(db.String(50), nullable=False)
+    provider = db.Column(
+        db.String(50),
+        nullable=False,
+        index=True
+    )
 
-    response = db.Column(db.Text, nullable=False)
+    response = db.Column(
+        db.Text,
+        nullable=False
+    )
 
     tokens_input = db.Column(db.Integer, nullable=True)
     tokens_output = db.Column(db.Integer, nullable=True)
@@ -101,9 +150,14 @@ class PromptHistory(db.Model):
     latency = db.Column(db.Float, nullable=True)
 
     temperature = db.Column(db.Float, nullable=True)
+
     top_p = db.Column(db.Float, nullable=True)
 
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow,
+        index=True
+    )
 
     def to_dict(self):
         return {
@@ -116,29 +170,42 @@ class PromptHistory(db.Model):
             "latency": self.latency,
             "temperature": self.temperature,
             "top_p": self.top_p,
-            "created_at": self.created_at.isoformat()
+            "created_at": self.created_at.isoformat() if self.created_at else None
         }
 
 
-
-# Built-In Template Library
-
+# TEMPLATE LIBRARY
 class TemplateLibrary(db.Model):
     __tablename__ = "template_library"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.BigInteger, primary_key=True)
 
-    category = db.Column(db.String(100), nullable=False)
+    category = db.Column(
+        db.String(100),
+        nullable=False,
+        index=True
+    )
 
-    title = db.Column(db.String(255), nullable=False)
+    title = db.Column(
+        db.String(255),
+        nullable=False,
+        index=True
+    )
 
     description = db.Column(db.Text, nullable=True)
 
     system_prompt = db.Column(db.Text, nullable=True)
 
-    user_prompt = db.Column(db.Text, nullable=False)
+    user_prompt = db.Column(
+        db.Text,
+        nullable=False
+    )
 
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(
+        db.DateTime,
+        default=datetime.utcnow,
+        index=True
+    )
 
     def to_dict(self):
         return {
@@ -148,5 +215,5 @@ class TemplateLibrary(db.Model):
             "description": self.description,
             "system_prompt": self.system_prompt,
             "user_prompt": self.user_prompt,
-            "created_at": self.created_at.isoformat()
+            "created_at": self.created_at.isoformat() if self.created_at else None
         }
