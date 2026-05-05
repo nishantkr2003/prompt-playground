@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Playground</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Prism.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+
+    <!-- Marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <!-- APP CONTAINER -->
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>PromptLab</h2>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><button class="nav-btn active" data-section="playground">Playground</button></li>
+                    <li><button class="nav-btn" data-section="comparison">Comparison</button></li>
+                    <li><button class="nav-btn" data-section="sweep">Parameter Sweep</button></li>
+                    <li><button class="nav-btn" data-section="library">Prompt Library</button></li>
+                    <li><button class="nav-btn" data-section="history">Execution History</button></li>
+                    <li><button class="nav-btn" data-section="templates">Templates</button></li>
+                </ul>
+            </nav>
+
+            <div class="theme-toggle">
+                <button id="themeToggle">Toggle Theme</button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <header class="topbar">
+                <h1 id="sectionTitle">Playground</h1>
+                <div class="status-indicator">
+                    <span id="apiStatus">API: Checking...</span>
+                </div>
+            </header>
+
+            <!-- PLAYGROUND -->
+            <section id="playground" class="content-section active">
+                <div class="panel-grid">
+
+                    <!-- INPUT PANEL -->
+                    <div class="card">
+                        <h3>Prompt Input</h3>
+
+                        <label>System Prompt</label>
+                        <textarea id="systemPrompt" placeholder="Optional system instructions..."></textarea>
+
+                        <label>User Prompt</label>
+                        <textarea id="userPrompt" placeholder="Enter your prompt..."></textarea>
+
+                        <label>Technique</label>
+                        <select id="technique">
+                            <option value="zero-shot">Zero-shot</option>
+                            <option value="few-shot">Few-shot</option>
+                            <option value="chain-of-thought">Chain-of-thought</option>
+                            <option value="role-based">Role-based</option>
+                            <option value="output-formatting">Output formatting</option>
+                        </select>
+
+                        <label>Provider</label>
+                        <select id="provider">
+                            <option value="gemini">Gemini</option>
+                            <option value="groq">Groq</option>
+                        </select>
+
+                        <label>Temperature</label>
+                        <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7">
+                        <span id="tempValue">0.7</span>
+
+                        <label>Top P</label>
+                        <input type="range" id="topP" min="0" max="1" step="0.1" value="1.0">
+                        <span id="topPValue">1.0</span>
+
+                        <label>Max Tokens</label>
+                        <input type="number" id="maxTokens" value="1024">
+
+                        <div class="button-group">
+                            <button id="runPrompt">Run Prompt</button>
+                            <button id="savePrompt">Save Prompt</button>
+                        </div>
+                    </div>
+
+                    <!-- OUTPUT PANEL -->
+                    <div class="card">
+                        <h3>Output</h3>
+
+                        <div class="metrics">
+                            <p>Input Tokens: <span id="inputTokens">0</span></p>
+                            <p>Output Tokens: <span id="outputTokens">0</span></p>
+                            <p>Latency: <span id="latency">0s</span></p>
+                        </div>
+
+                        <div id="outputBox" class="output-box">
+                            Your generated response will appear here...
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- COMPARISON -->
+            <section id="comparison" class="content-section">
+                <h2>Prompt Comparison</h2>
+                <div id="comparisonContainer"></div>
+            </section>
+
+            <!-- SWEEP -->
+            <section id="sweep" class="content-section">
+                <h2>Parameter Sweep</h2>
+                <div id="sweepContainer"></div>
+            </section>
+
+            <!-- LIBRARY -->
+            <section id="library" class="content-section">
+                <h2>Prompt Library</h2>
+                <div id="libraryContainer"></div>
+            </section>
+
+            <!-- HISTORY -->
+            <section id="history" class="content-section">
+                <h2>Execution History</h2>
+                <div id="historyContainer"></div>
+            </section>
+
+            <!-- TEMPLATES -->
+            <section id="templates" class="content-section">
+                <h2>Templates</h2>
+                <div id="templatesContainer"></div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast"></div>
+
+    <!-- JS -->
+    <script type="module" src="js/app.js"></script>
+
+    <!-- Prism -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+</body>
+
+</html>
