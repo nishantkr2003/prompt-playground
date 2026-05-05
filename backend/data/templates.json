@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "category": "Content",
+    "title": "Blog Generator",
+    "description": "Generate a structured blog post on any topic.",
+    "system_prompt": "You are an expert content writer.",
+    "user_prompt": "Write a detailed blog post about: {topic}"
+  },
+  {
+    "id": 2,
+    "category": "Content",
+    "title": "Email Drafter",
+    "description": "Draft professional emails.",
+    "system_prompt": "You are a professional business communication assistant.",
+    "user_prompt": "Draft a professional email for: {purpose}"
+  },
+  {
+    "id": 3,
+    "category": "Content",
+    "title": "Social Media Post",
+    "description": "Generate engaging social posts.",
+    "system_prompt": "You are a social media strategist.",
+    "user_prompt": "Create a viral social media post about: {topic}"
+  },
+  {
+    "id": 4,
+    "category": "Content",
+    "title": "Product Description",
+    "description": "Write persuasive product descriptions.",
+    "system_prompt": "You are an eCommerce copywriter.",
+    "user_prompt": "Write a compelling product description for: {product}"
+  },
+  {
+    "id": 5,
+    "category": "Code",
+    "title": "Bug Finder",
+    "description": "Analyze code for bugs.",
+    "system_prompt": "You are a senior software debugger.",
+    "user_prompt": "Find bugs and suggest fixes in this code:\n{code}"
+  },
+  {
+    "id": 6,
+    "category": "Code",
+    "title": "Code Explainer",
+    "description": "Explain code step by step.",
+    "system_prompt": "You are a programming educator.",
+    "user_prompt": "Explain this code clearly:\n{code}"
+  },
+  {
+    "id": 7,
+    "category": "Code",
+    "title": "Function Generator",
+    "description": "Generate functions from requirements.",
+    "system_prompt": "You are an expert software engineer.",
+    "user_prompt": "Write a function for: {requirement}"
+  },
+  {
+    "id": 8,
+    "category": "Code",
+    "title": "API Documentation",
+    "description": "Generate API docs.",
+    "system_prompt": "You are a technical documentation expert.",
+    "user_prompt": "Generate API documentation for:\n{api_details}"
+  },
+  {
+    "id": 9,
+    "category": "Analysis",
+    "title": "Pros and Cons",
+    "description": "Analyze advantages and disadvantages.",
+    "system_prompt": "You are an analytical decision-making assistant.",
+    "user_prompt": "Provide pros and cons for: {topic}"
+  },
+  {
+    "id": 10,
+    "category": "Analysis",
+    "title": "Sentiment Analyzer",
+    "description": "Analyze sentiment of text.",
+    "system_prompt": "You are a sentiment analysis expert.",
+    "user_prompt": "Analyze sentiment of this text:\n{text}"
+  },
+  {
+    "id": 11,
+    "category": "Analysis",
+    "title": "Text Classifier",
+    "description": "Classify text into categories.",
+    "system_prompt": "You are a text classification system.",
+    "user_prompt": "Classify this text:\n{text}"
+  },
+  {
+    "id": 12,
+    "category": "Analysis",
+    "title": "Math Solver",
+    "description": "Solve mathematical problems step by step.",
+    "system_prompt": "You are a math tutor.",
+    "user_prompt": "Solve this problem step by step:\n{problem}"
+  },
+  {
+    "id": 13,
+    "category": "Summarization",
+    "title": "Summarizer",
+    "description": "Summarize long text.",
+    "system_prompt": "You are a summarization expert.",
+    "user_prompt": "Summarize this text:\n{text}"
+  },
+  {
+    "id": 14,
+    "category": "Summarization",
+    "title": "Meeting Notes",
+    "description": "Convert discussions into notes.",
+    "system_prompt": "You are a meeting assistant.",
+    "user_prompt": "Convert this into structured meeting notes:\n{text}"
+  },
+  {
+    "id": 15,
+    "category": "Language",
+    "title": "Translator",
+    "description": "Translate text into another language.",
+    "system_prompt": "You are a multilingual translator.",
+    "user_prompt": "Translate this into {language}:\n{text}"
+  },
+  {
+    "id": 16,
+    "category": "Language",
+    "title": "Tone Adjuster",
+    "description": "Adjust tone of writing.",
+    "system_prompt": "You are a writing style assistant.",
+    "user_prompt": "Rewrite this in a {tone} tone:\n{text}"
+  },
+  {
+    "id": 17,
+    "category": "Language",
+    "title": "Grammar Checker",
+    "description": "Fix grammar and clarity.",
+    "system_prompt": "You are a grammar correction expert.",
+    "user_prompt": "Correct grammar and improve clarity:\n{text}"
+  }
+]

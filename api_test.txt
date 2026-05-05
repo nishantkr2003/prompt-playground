@@ -1,0 +1,291 @@
+PROMPT ENGINEERING PLAYGROUND - COMPLETE POSTMAN API TESTING CHEATSHEET
+BASE URL:
+http://127.0.0.1:5000/api
+
+==================================================
+1. HEALTH CHECK
+==================================================
+METHOD: GET
+URL:
+http://127.0.0.1:5000/api/health
+
+EXPECTED:
+{
+  "status": "success"
+}
+
+==================================================
+2. ROOT CHECK (OPTIONAL)
+==================================================
+METHOD: GET
+URL:
+http://127.0.0.1:5000/
+
+==================================================
+3. GET ALL TEMPLATES
+==================================================
+METHOD: GET
+URL:
+http://127.0.0.1:5000/api/templates
+
+==================================================
+4. GET TEMPLATE BY ID
+==================================================
+METHOD: GET
+URL:
+http://127.0.0.1:5000/api/templates/1
+
+==================================================
+5. CREATE PROMPT
+==================================================
+METHOD: POST
+URL:
+http://127.0.0.1:5000/api/prompts
+
+HEADERS:
+Content-Type: application/json
+
+BODY:
+{
+  "title": "Prompt Engineering Intro",
+  "system_prompt": "You are an AI tutor.",
+  "user_prompt": "Explain prompt engineering simply.",
+  "technique": "zero-shot",
+  "provider": "gemini"
+}
+
+==================================================
+6. GET ALL PROMPTS
+==================================================
+METHOD: GET
+URL:
+http://127.0.0.1:5000/api/prompts
+
+==================================================
+7. GET SINGLE PROMPT
+==================================================
+METHOD: GET
+URL:
+http://127.0.0.1:5000/api/prompts/1
+
+==================================================
+8. UPDATE PROMPT
+==================================================
+METHOD: PUT
+URL:
+http://127.0.0.1:5000/api/prompts/1
+
+HEADERS:
+Content-Type: application/json
+
+BODY:
+{
+  "title": "Updated Prompt Title"
+}
+
+==================================================
+9. DELETE PROMPT
+==================================================
+METHOD: DELETE
+URL:
+http://127.0.0.1:5000/api/prompts/1
+
+==================================================
+10. GENERATE (GEMINI)
+==================================================
+METHOD: POST
+URL:
+http://127.0.0.1:5000/api/generate
+
+HEADERS:
+Content-Type: application/json
+
+BODY:
+{
+  "user_prompt": "Explain prompt engineering",
+  "provider": "gemini",
+  "temperature": 0.5,
+  "top_p": 0.8,
+  "max_tokens": 200
+}
+
+==================================================
+11. GENERATE (GROQ FALLBACK)
+==================================================
+METHOD: POST
+URL:
+http://127.0.0.1:5000/api/generate
+
+HEADERS:
+Content-Type: application/json
+
+BODY:
+{
+  "user_prompt": "Explain prompt engineering",
+  "provider": "groq",
+  "temperature": 0.7,
+  "top_p": 1.0,
+  "max_tokens": 500
+}
+
+==================================================
+12. GET HISTORY
+==================================================
+METHOD: GET
+URL:
+http://127.0.0.1:5000/api/history
+
+==================================================
+13. GET HISTORY BY ID
+==================================================
+METHOD: GET
+URL:
+http://127.0.0.1:5000/api/history/1
+
+==================================================
+14. COMPARE PROMPTS
+==================================================
+METHOD: POST
+URL:
+http://127.0.0.1:5000/api/compare
+
+HEADERS:
+Content-Type: application/json
+
+BODY:
+{
+  "prompt_a": "Explain AI simply",
+  "prompt_b": "Explain AI technically",
+  "provider": "gemini"
+}
+
+==================================================
+15. SWEEP PARAMETERS
+==================================================
+METHOD: POST
+URL:
+http://127.0.0.1:5000/api/sweep
+
+HEADERS:
+Content-Type: application/json
+
+BODY:
+{
+  "user_prompt": "Explain prompt engineering",
+  "temperatures": [0.3, 0.7],
+  "top_ps": [0.5, 1.0],
+  "provider": "gemini"
+}
+
+==================================================
+16. EXPORT PROMPTS
+==================================================
+METHOD: POST
+URL:
+http://127.0.0.1:5000/api/export
+
+HEADERS:
+Content-Type: application/json
+
+BODY:
+{
+  "format": "json"
+}
+
+==================================================
+17. IMPORT PROMPTS
+==================================================
+METHOD: POST
+URL:
+http://127.0.0.1:5000/api/import
+
+HEADERS:
+Content-Type: application/json
+
+BODY:
+{
+  "prompts": [
+    {
+      "title": "Imported Prompt",
+      "system_prompt": "You are helpful.",
+      "user_prompt": "Explain AI",
+      "technique": "zero-shot",
+      "provider": "gemini"
+    }
+  ]
+}
+
+==================================================
+18. COMMON DEBUG CHECKS
+==================================================
+IF 404:
+Check route path
+
+IF 405:
+Check method (GET/POST/PUT/DELETE)
+
+IF 415:
+Set:
+Content-Type: application/json
+
+IF 429:
+Quota exceeded
+
+IF 500:
+Check Flask terminal logs
+
+==================================================
+19. REQUIRED POSTMAN SETTINGS
+==================================================
+Body → raw → JSON
+
+Headers:
+Content-Type: application/json
+
+==================================================
+20. SERVER START
+==================================================
+cd backend
+python app.py
+
+==================================================
+21. FRONTEND START
+==================================================
+Open:
+frontend/index.html
+
+OR Live Server:
+http://127.0.0.1:5500
+
+==================================================
+22. QUICK PRIORITY TEST ORDER
+==================================================
+1. /api/health
+2. /api/templates
+3. /api/prompts
+4. /api/generate
+5. /api/history
+6. /api/compare
+7. /api/sweep
+8. /api/export
+9. /api/import
+
+==================================================
+23. PRODUCTION PRIORITY
+==================================================
+Primary:
+Gemini
+
+Fallback:
+Groq
+
+==================================================
+24. SAFE TEST TOKEN BODY
+==================================================
+{
+  "user_prompt": "Explain prompt engineering",
+  "provider": "gemini",
+  "temperature": 0.3,
+  "top_p": 0.8,
+  "max_tokens": 100
+}
