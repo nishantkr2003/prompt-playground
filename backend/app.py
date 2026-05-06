@@ -34,7 +34,11 @@ def create_app():
 
     # Create tables automatically (good for assignment/dev)
     with app.app_context():
-        db.create_all()
+        try:
+            db.create_all()
+            print("Database connected successfully")
+        except Exception as e:
+            print("Database initialization failed:", e)
 
     @app.route("/", methods=["GET"])
     def home():
