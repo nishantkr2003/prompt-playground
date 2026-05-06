@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/output-parser.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="css/data-manager.css">
+    <link rel="stylesheet" href="css/shortcuts.css">
+    <link rel="stylesheet" href="css/developer.css">
     <link rel="stylesheet" href="css/responsive.css">
+    
 
     <!-- Prism.js -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
@@ -33,11 +39,24 @@
             <nav>
                 <ul>
                     <li><button class="nav-btn active" data-section="playground">Playground</button></li>
-                    <li><button class="nav-btn" data-section="comparison">Comparison</button></li>
+                    <li>
+                        <button class="nav-btn" data-section="comparison">Comparison</button>
+                    </li>
+                    
                     <li><button class="nav-btn" data-section="sweep">Parameter Sweep</button></li>
                     <li><button class="nav-btn" data-section="library">Prompt Library</button></li>
                     <li><button class="nav-btn" data-section="history">Execution History</button></li>
                     <li><button class="nav-btn" data-section="templates">Templates</button></li>
+                    <li>
+                        <button class="nav-btn" data-section="data-manager">
+                            Data Manager
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-btn" data-section="developer">
+                            Developer
+                        </button>
+                    </li>
                 </ul>
             </nav>
 
@@ -55,6 +74,9 @@
                 <div class="status-indicator">
                     <span id="apiStatus">API: Checking...</span>
                 </div>
+                <button id="shortcutHelpBtn">
+                    Shortcuts
+                </button>
             </header>
 
             <!-- PLAYGROUND -->
@@ -150,6 +172,12 @@
                 <h2>Templates</h2>
                 <div id="templatesContainer"></div>
             </section>
+            <section id="data-manager" class="content-section">
+                <div id="dataManagerContainer"></div>
+            </section>
+            <section id="developer" class="content-section">
+                <div id="developerContainer"></div>
+            </section>
 
         </main>
 
@@ -157,6 +185,30 @@
 
     <!-- TOAST -->
     <div id="toast" class="toast"></div>
+    <div id="shortcutModal" class="shortcut-modal hidden">
+        <div class="shortcut-modal-content">
+            <h2>Keyboard Shortcuts</h2>
+    
+            <ul>
+                <li><strong>Ctrl + Enter</strong> → Run Prompt</li>
+                <li><strong>Ctrl + S</strong> → Save Prompt</li>
+                <li><strong>/</strong> → Search Library</li>
+                <li><strong>Esc</strong> → Close Toast</li>
+                <li><strong>Alt + 1</strong> → Playground</li>
+                <li><strong>Alt + 2</strong> → Templates</li>
+                <li><strong>Alt + 3</strong> → Library</li>
+                <li><strong>Alt + 4</strong> → Comparison</li>
+                <li><strong>Alt + 5</strong> → Sweep</li>
+                <li><strong>Alt + 6</strong> → History</li>
+                <li><strong>Alt + 7</strong> → Data Manager</li>
+                <li><strong>Alt + 8</strong> → Developer</li>
+            </ul>
+    
+            <button id="closeShortcutModal">
+                Close
+            </button>
+        </div>
+    </div>
 
     <!-- JS -->
     <script type="module" src="js/app.js"></script>
