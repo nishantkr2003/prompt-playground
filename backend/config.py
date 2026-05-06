@@ -72,6 +72,6 @@ config_by_name = {
 
 # Active config
 current_config = config_by_name.get(
-    os.getenv("FLASK_ENV", "development"),
-    DevelopmentConfig
+    os.getenv("FLASK_ENV", "production").lower(),
+    ProductionConfig
 )
