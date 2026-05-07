@@ -4,7 +4,10 @@ import { initializeSweepUI } from "./sweep.js";
 import { initializeLibraryUI } from "./library.js";
 import { initializeHistoryUI } from "./history.js";
 import { initializeTemplatesUI } from "./templates.js";
-
+import { initializeDataManagerUI } from "./data-manager.js";
+import { initializeShortcuts } from "./shortcuts.js";
+import { initializeShortcutHelp } from "./shortcut-help.js";
+import { initializeDeveloperUI } from "./developer.js";
 import { parseOutput } from "./output-parser.js";
 import { showToast } from "./toast.js";
 
@@ -188,8 +191,10 @@ function initializeModules() {
   initializeLibraryUI();
   initializeHistoryUI();
   initializeTemplatesUI();
-
-
+  initializeDataManagerUI();
+  initializeDeveloperUI();
+  initializeShortcuts();
+  initializeShortcutHelp();
 }
 
 /* init app */

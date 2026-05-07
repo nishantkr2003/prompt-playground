@@ -1,0 +1,146 @@
+/* about me */
+
+#developerContainer .about-card{
+    padding:28px;
+    border-radius:18px;
+    line-height:1.7;
+    background:var(--card);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+#developerContainer .about-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 24px rgba(0,0,0,.2);
+}
+
+/* header */
+
+.about-header{
+    margin-bottom:28px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--border);
+}
+
+.about-header h2{
+    font-size:30px;
+    color:var(--primary);
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.about-header p{
+    color:var(--text-light);
+    font-size:16px;
+    line-height:1.6;
+}
+
+/* sections */
+
+.about-section{
+    margin-bottom:28px;
+}
+
+.about-section:last-child{
+    margin-bottom:0;
+}
+
+.about-section h3{
+    font-size:20px;
+    margin-bottom:12px;
+    color:var(--text);
+}
+
+.about-section p{
+    color:var(--text-light);
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* lists */
+
+.about-section ul{
+    padding-left:20px;
+}
+
+.about-section li{
+    margin-bottom:8px;
+    color:var(--text-light);
+    line-height:1.6;
+}
+
+.about-section li:last-child{
+    margin-bottom:0;
+}
+
+/* highlight */
+
+.about-section strong{
+    color:var(--primary);
+}
+
+/* divider utility */
+
+.about-divider{
+    height:1px;
+    background:var(--border);
+    margin:20px 0;
+}
+
+/* social / links */
+
+.about-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:12px;
+}
+
+.about-links a{
+    color:var(--primary);
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.about-links a:hover{
+    opacity:.8;
+}
+
+/* responsive */
+
+@media(max-width:768px){
+
+    #developerContainer .about-card{
+        padding:20px;
+    }
+
+    .about-header{
+        margin-bottom:22px;
+        padding-bottom:14px;
+    }
+
+    .about-header h2{
+        font-size:24px;
+    }
+
+    .about-section{
+        margin-bottom:22px;
+    }
+
+    .about-section h3{
+        font-size:18px;
+    }
+
+    .about-header p,
+    .about-section p,
+    .about-section li{
+        font-size:14px;
+    }
+
+    .about-links{
+        flex-direction:column;
+        gap:8px;
+    }
+}

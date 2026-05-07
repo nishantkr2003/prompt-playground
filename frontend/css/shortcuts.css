@@ -1,0 +1,107 @@
+/* shortcut modal */
+
+.shortcut-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10000;
+    padding:20px;
+    backdrop-filter:blur(4px);
+}
+
+.shortcut-modal.hidden{
+    display:none;
+}
+
+/* modal box */
+
+.shortcut-modal-content{
+    background:var(--card);
+    padding:28px;
+    border-radius:18px;
+    width:min(92%,520px);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    animation:modalFade .25s ease;
+}
+
+/* animation */
+
+@keyframes modalFade{
+    from{
+        opacity:0;
+        transform:translateY(10px) scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* heading */
+
+.shortcut-modal-content h2{
+    margin-bottom:18px;
+    color:var(--primary);
+    font-size:24px;
+}
+
+/* list */
+
+.shortcut-modal-content ul{
+    margin-bottom:20px;
+    padding-left:18px;
+    line-height:2;
+}
+
+.shortcut-modal-content li{
+    color:var(--text);
+    font-size:15px;
+}
+
+/* key highlight */
+
+.shortcut-modal-content strong,
+.shortcut-modal-content kbd{
+    color:var(--primary);
+    font-weight:600;
+}
+
+.shortcut-modal-content kbd{
+    display:inline-block;
+    padding:3px 8px;
+    border-radius:6px;
+    background:var(--bg-light);
+    border:1px solid var(--border);
+    font-size:13px;
+    margin:0 2px;
+}
+
+/* close button */
+
+.shortcut-close-btn{
+    width:100%;
+    margin-top:8px;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+    .shortcut-modal-content{
+        padding:20px;
+    }
+
+    .shortcut-modal-content h2{
+        font-size:20px;
+    }
+
+    .shortcut-modal-content li{
+        font-size:14px;
+        line-height:1.8;
+    }
+}
