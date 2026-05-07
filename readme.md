@@ -125,7 +125,6 @@ prompt-playground/
 │       ├── tost.js
 │       └── templates.js
 │
-├── .env
 ├── .env.example
 ├── .gitignore
 ├── LICENSE
