@@ -34,7 +34,8 @@ export function initializeDeveloperUI() {
             <li>Frontend: HTML, CSS, JavaScript, React.js, Tailwind CSS</li>
             <li>Backend: Node.js, Express.js, Flask</li>
             <li>Database: MongoDB, PostgreSQL, SQLite</li>
-            <li>AI: Gemini API, RAG, Prompt Engineering</li>
+            <li>AI: Gemini API, RAG, Prompt Engineering, AI & ML, Deep Learning, Generative AI, NLP</li>
+            <li>Programming: Java</li>
             <li>Tools: Git, GitHub, OAuth, REST APIs</li>
           </ul>
         </div>
@@ -55,7 +56,7 @@ export function initializeDeveloperUI() {
           <ul>
             <li>Smart India Hackathon 2024 Finalist</li>
             <li>AI-based Medical Recommendation System</li>
-            <li>Google Generative AI Certified</li>
+            <li>Gate Qualified</li>
             <li>Focused on top-tier Software Engineering roles</li>
           </ul>
         </div>
